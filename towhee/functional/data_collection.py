@@ -24,7 +24,7 @@ from towhee.functional.mixins.column import ColumnMixin
 
 
 class DataCollection(Iterable, DCMixins):
-    """A pythonic computation and processing frameowrk.
+    """A pythonic computation and processing framework.
 
     DataCollection is a pythonic computation and processing framework for unstructured
     data in machine learning and data science. It allows a data scientist or researcher
@@ -32,28 +32,28 @@ class DataCollection(Iterable, DCMixins):
     transforming, or classification) with a method-chaining style API. It is also
     designed to behave as a python list or iterator.
 
-    Cases:
-        1. `DataCollection(iter([1, 2, 3])).stage1().stage2()`
 
-        When a `DataCollection` object is created from an iterator, it behaves as a
-        python iterator and performs `stream-wise` data processing::
+    1. `DataCollection(iter([1, 2, 3])).stage1().stage2()`
 
-            a. `DataCollection` takes one element from the input and applies `stage1`,
-                output is fed to a new `DataCollection` where `stage2` is sequentially
-                applied.
+    When a `DataCollection` object is created from an iterator, it behaves as a
+    python iterator and performs `stream-wise` data processing:
 
-            b. Functions such as indexing or shuffle are not supported due to no data
-                being stored in the DataCollection.
+        a. `DataCollection` takes one element from the input and applies `stage1`,
+            output is fed to a new `DataCollection` where `stage2` is sequentially
+            applied.
 
-        2. `DataCollection([1, 2, 3]).stage1().stage2()`
+        b. Functions such as indexing or shuffle are not supported due to no data
+            being stored in the DataCollection.
 
-        When a `DataCollection` object is created from a list, it will hold all the
-        input values, and perform stage-wise computations::
+    2. `DataCollection([1, 2, 3]).stage1().stage2()`
 
-            a. `stage2` will wait until all the calculations are done in `stage1`.
+    When a `DataCollection` object is created from a list, it will hold all the
+    input values, and perform `stage-wise` computations:
 
-            b. A new DataCollection will be created to hold all the outputs for each
-                stage. You can perform list operations on result DataCollection.
+        a. `stage2` will wait until all the calculations are done in `stage1`.
+
+        b. A new DataCollection will be created to hold all the outputs for each
+            stage. You can perform list operations on result DataCollection.
 
     Examples:
         1. Create a DataCollection from list or iterator::
