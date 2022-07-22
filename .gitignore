@@ -67,6 +67,8 @@ instance/
 # Sphinx documentation
 docs/_build/
 towhee/doc/source/_autosummary
+towhee/doc/_build
+towhee/doc/_source
 
 # PyBuilder
 target/
